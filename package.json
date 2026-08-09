@@ -4,11 +4,14 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "server": "node --env-file=.env backend/server.js",
+    "server": "node backend/server.js",
     "dev:frontend": "npm --prefix frontend run dev",
     "build:frontend": "npm --prefix frontend run build",
     "start:frontend": "npm --prefix frontend run start",
-    "start": "node --env-file=.env backend/server.js"
+    "start": "node backend/server.js & npm --prefix frontend start"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "dependencies": {
     "express": "latest",

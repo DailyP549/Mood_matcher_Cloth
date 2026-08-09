@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: outfitwise-api
+    runtime: node
+    rootDir: .
+    plan: free
+    buildCommand: npm install
+    startCommand: node backend/server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: OPENWEATHER_API_KEY
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: LLM_API_KEY
+        sync: false
+      - key: LLM_BASE_URL
+        value: https://api.groq.com/openai/v1
+      - key: LLM_MODEL
+        value: llama-3.3-70b-versatile
+      - key: CHANNEL3_API_KEY
+        sync: false
+
+  - type: web
+    name: outfitwise-frontend
+    runtime: node
+    rootDir: frontend
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: BACKEND_URL
+        fromService:
+          name: outfitwise-api
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL

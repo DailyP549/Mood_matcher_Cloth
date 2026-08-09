@@ -1,3 +1,4 @@
+import "./env.js";
 import express from "express";
 import cors from "cors";
 import path from "node:path";
@@ -8,7 +9,7 @@ import { generateReasoning } from "./llm.js";
 import { searchProducts, toWardrobeItem } from "./channel3.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || process.env.API_PORT || 4000;
 
 const app = express();
 app.use(cors());
