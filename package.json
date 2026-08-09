@@ -1,0 +1,19 @@
+{
+  "name": "outfitwise",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "server": "node --env-file=.env backend/server.js",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "start:frontend": "npm --prefix frontend run start",
+    "start": "node --env-file=.env backend/server.js"
+  },
+  "dependencies": {
+    "express": "latest",
+    "cors": "latest",
+    "@supabase/supabase-js": "latest"
+  },
+  "devDependencies": {}
+}
