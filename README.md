@@ -3,7 +3,7 @@
 AI-powered personal wardrobe assistant.
 Open : https://mood-matcher-xi.vercel.app/
 Or
-Open : mood-matcher-cloth.vercel.app
+Open : https://mood-matcher-cloth.vercel.app
 
 ## Structure
 ```
